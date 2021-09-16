@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="CoffeeShop.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeShop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="TopButton">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="BorderThickness" Value="0,0,2,0" />
+            <Setter Property="BorderBrush" Value="Gray" />
+        </Style>
+        <Style TargetType="Image" x:Key="TopImageStyle">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+        </Style>
+    </Page.Resources>
+
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Name="DonutsButton"
+                    Click="DonutsButton_Click"
+                    Style="{StaticResource TopButton}">
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Image Source="Assets/donut-icon.png" Name="DonutIcon" Style="{StaticResource TopImageStyle}"/>
+                    <TextBlock Text="Donuts"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="CoffeeButton"
+                    Click="CoffeeButton_Click"
+                    Style="{StaticResource TopButton}"
+                    Grid.Column="1">
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Image Source="Assets/coffee-icon.png" Name="CoffeeIcon" Style="{StaticResource TopImageStyle}"/>
+                    <TextBlock Text="Coffee"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="ScheduleButton"
+                    Click="ScheduleButton_Click"
+                    Style="{StaticResource TopButton}"
+                    Grid.Column="2">
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Image Source="Assets/schedule-icon.png" Name="ScheduleIcon" Style="{StaticResource TopImageStyle}"/>
+                    <TextBlock Text="Schedule"/>
+                </StackPanel>
+            </Button>
+
+            <Button Click="CompleteButton_Click"
+                    Name="CompleteButton"
+                    Style="{StaticResource TopButton}"
+                    Grid.Column="3">
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Image Source="Assets/complete-icon.png" Name="CompleteIcon" Style="{StaticResource TopImageStyle}"/>
+                    <TextBlock Text="Complete" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Name="MyFrame"/>
+
+            <Image Grid.Column="1"
+                   Stretch="UniformToFill"
+                   Source="Assets/background.jpg"/>
+        </Grid>
+    </StackPanel>
+</Page>

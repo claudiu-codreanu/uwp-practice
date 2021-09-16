@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="CoffeeShop.CoffeePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeShop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="FlyoutButton">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <MenuFlyout x:Key="RoastFlyout">
+            <MenuFlyoutItem Text="None" Click="Roast_Click" />
+            <MenuFlyoutItem Text="Dark" Click="Roast_Click" />
+            <MenuFlyoutItem Text="Medium" Click="Roast_Click" />
+        </MenuFlyout>
+        <Flyout x:Key="CreamFlyout">
+            <StackPanel>
+                <Button Name="NoCreamButton"
+                        Content="None"
+                        Click="NoCreamButton_Click"/>
+
+                <Button Name="SkimCreamButton"
+                        Content="2% Milk"
+                        Click="SkimCreamButton_Click"/>
+
+                <Button Name="WholeCreamButton"
+                        Content="Whole Milk"
+                        Click="WholeCreamButton_Click"/>
+            </StackPanel>
+        </Flyout>
+        <MenuFlyout x:Key="SweetnerFlyout">
+            <MenuFlyoutItem Text="None" Click="Sweetner_Click" />
+            <MenuFlyoutItem Text="Sugar" Click="Sweetner_Click"/>
+        </MenuFlyout>
+    </Page.Resources>
+
+    <StackPanel Background="#3C1F19" Height="1000">
+        <Image Style="{StaticResource LogoStyle}"/>
+        <RelativePanel>
+            <Button Name="SweetnerButton"
+                    Content="Sweetner"
+                    Style="{StaticResource FlyoutButton}"
+                    Flyout="{StaticResource SweetnerFlyout}"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <Button Name="RoastButton"
+                    Content="Roast"
+                    Style="{StaticResource FlyoutButton}"
+                    Flyout="{StaticResource RoastFlyout}"
+                    RelativePanel.LeftOf="SweetnerButton"/>
+
+            <Button Name="CreamButton"
+                    Content="Cream"
+                    Style="{StaticResource FlyoutButton}"
+                    Flyout="{StaticResource CreamFlyout}"
+                    RelativePanel.RightOf="SweetnerButton"/>
+        </RelativePanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Coffee:"
+                       Style="{StaticResource LabelStyle}"/>
+            <TextBlock Name="CoffeeTextBlock"
+                       Style="{StaticResource LabelStyle}" />
+        </StackPanel>
+    </StackPanel>
+</Page>
